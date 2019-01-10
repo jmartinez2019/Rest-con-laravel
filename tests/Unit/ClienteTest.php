@@ -29,6 +29,10 @@ class ClienteTest extends TestCase
 ]);
   }
 
+
+
+
+
   public function testPruebaPUT()
   {
     $data = ['id'=>2,'nombre'=>'camiloModificado','apellido'=>'martinez','email'=>'jmartinez@existaya.com','telefono'=>'3206419532'];
