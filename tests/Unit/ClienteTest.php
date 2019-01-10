@@ -29,7 +29,7 @@ class ClienteTest extends TestCase {
 
     public function testPruebaDELETE() {
         $r = $this->json('DELETE', 'api/clientes/2');
-        $r->assertStatus(200)->assertJson(["status" => "k", "data" => "Se borro correctamente"]);
+        $r->assertStatus(200)->assertJson(["status" => ".k", "data" => "Se borro correctamente"]);
     }
 
 }
