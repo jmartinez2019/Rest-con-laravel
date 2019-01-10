@@ -12,11 +12,11 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     
+
     public function index()
     {
         $i = Cliente::all();
-        return $i;
+        return json_encode(["status"=>"ok","data" => $i],JSON_PRETTY_PRINT);
     }
 
     /**
@@ -45,7 +45,7 @@ class ClienteController extends Controller
         $cli->telefono = $request->telefono;
         $cli->save();
 
-        return "Se ha almacenado correctamente el usuario ".$cli->nombre;
+        return json_encode(["status"=>"ok","data" => $cli],JSON_PRETTY_PRINT);
 
 
     }
@@ -59,7 +59,11 @@ class ClienteController extends Controller
     public function show($id)
     {
           $cli = Cliente::find($id);
-          return $cli;
+          if($cli){
+            return json_encode(["status"=>"ok","data" => $cli],JSON_PRETTY_PRINT);
+          }else {
+            return json_encode(["status"=>"fail","data" => "Ha ocurrido un error"],JSON_PRETTY_PRINT);
+          }
 
     }
 
@@ -93,20 +97,28 @@ class ClienteController extends Controller
       $cli->telefono = $request->telefono;
       $cli->save();
 
-      return "Se actualizo correctamente el usuario con id: ".$cli->id;
+      return json_encode(["status"=>"ok","data" => "Se actualizo correctamente"],JSON_PRETTY_PRINT);
 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $nit
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
 
     {
-          $cli = Cliente::destroy($id);
-          return  "Se borro correctamente";
+      $c = Cliente::find($id);
+      if($c){
+        $cli = Cliente::destroy($id);
+        return  json_encode(["status"=>"ok","data" => "Se borro correctamente"],JSON_PRETTY_PRINT);
+      }else {
+        return  json_encode(["status"=>"fail","data" => "Ha ocurrido un error"],JSON_PRETTY_PRINT);
+      }
+
+
+
     }
 }
