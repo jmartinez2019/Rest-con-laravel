@@ -11,7 +11,7 @@ class ClienteTest extends TestCase
 
     public function testPruebaPOST()
   {
-    $r =  $this->json('POST','api/clientes',['id'=>101,'nombre'=>'camilo','apellido'=>'martinez','email'=>'jmartinez@existaya.com','telefono'=>'3206419532']);
+    $r =  $this->json('POST','api/clientes',['id'=>100,'nombre'=>'camilo','apellido'=>'martinez','email'=>'jmartinez@existaya.com','telefono'=>'3206419532']);
 
     $r->assertStatus(200);
   }
