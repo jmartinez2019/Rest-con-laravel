@@ -94,7 +94,7 @@ class ProveedorController extends Controller
       $proveedor->telefono = $request->telefono;
       $proveedor->save();
 
-        return json_encode(["status"=>"ok","data" => $proveedor],JSON_PRETTY_PRINT);
+        return json_encode(["status"=>"ok","data" => "Se actualizo correctamente"],JSON_PRETTY_PRINT);
     }
 
     /**
