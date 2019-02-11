@@ -7,7 +7,7 @@ class ClienteTest extends TestCase {
 
     public function testPruebaGET() {
         $r = $this->json('GET', 'api/clientes');
-        $r->assertStatus(200)->assertJson(["status" => "ok"]);
+        $r->assertStatus(200)->assertJson(["status" => "o"]);
     }
 
     public function testPruebaPOST() {
