@@ -112,7 +112,7 @@ class ClienteController extends Controller
     {
       $c = Cliente::find($id);
       if($c){
-        $cli = Cliente::destroy($id);
+        Cliente::destroy($id);
         return  json_encode(["status"=>"ok","data" => "Se borro correctamente"],JSON_PRETTY_PRINT);
       }else {
         return  json_encode(["status"=>"fail","data" => "Ha ocurrido un error"],JSON_PRETTY_PRINT);
